@@ -1,34 +1,33 @@
 class SearchController < ApplicationController
+
+
+
   def new
     @search = Search.new
   end
 
-  def create
-    @searchText = params[:searchInput]
-    puts " SEARCH TEXT : #{@searchText}"
-    redirect_to search_searchResults_url
-  end
-
-  def scrap
-    
-  end
-
   def searchResults
-    @namearr = []
-    @response = HTTParty.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{params[:searchInput]}")
+    @searchText = params[:searchInput]
+    @nameArr = []
+    @urlArr =[]
+    @hash1 = {}
+    @response = HTTParty.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{@searchText}")
     @jdoc1 = JSON.parse(@response.body)
-    puts @searchText
     @jdoc1["drinks"].each  do |sub|
-      @namearr.append(sub["strDrink"])
-      puts @namearr
+      @nameArr.push(sub["strDrink"])
     end
+    @jdoc1["drinks"].each  do |sub|
+      @urlArr.push("#{sub["strDrinkThumb"]}/preview")
+    end
+      for n in (0..@nameArr.size-1) do
+        @hash1[@nameArr[n]] = @urlArr[n]
+      end
   end
 
   def cocktailPage
 
 
     @name =  sub["strDrink"]
-    puts @name
     if sub["strCategory"] != nil then @category = sub["strCategory"] end
     @alco = sub["strAlcoholic"]
     @glass = sub["strGlass"]
@@ -37,7 +36,6 @@ class SearchController < ApplicationController
     for i in (1..15) do
       if (sub["strIngredient#{i}"] != nil) && (sub["strIngredient#{i}"] != " ")
         @hash[sub["strIngredient#{i}"]] = sub["strMeasure#{i}"]
-        puts @hash
       end
     end
 

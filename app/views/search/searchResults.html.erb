@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -45,7 +44,9 @@
 <div class="container">
 
   <div class="row text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 5px;margin: 5px;">
-    <div class="col-md-3" style="width: 20%;margin-right: 2%;margin-left: 2%;"><img class="rounded-circle d-flex justify-content-lg-center" src="assets/img/bry4qh1582751040.jpg" style="width: 100%;border-style: solid;border-color: #af5d9e;"><a class="d-flex justify-content-lg-center" href="LINK TO COCKTAIL PAGE HERE" style="width: 100%;margin-left: 1px;margin-top: 11px;"><%= @namearr[0] %></div>
+    <% for (name, url) in @hash1 do %>
+      <div class="col-md-3" style="width: 20%;margin-right: 2%;margin-left: 2%;"><img class="rounded-circle d-flex justify-content-lg-center" src=<%= url %> style="width: 100%;border-style: solid;border-color: #af5d9e;"><a class="d-flex justify-content-lg-center" href="LINK TO COCKTAIL PAGE HERE" style="width: 100%;margin-left: 1px;margin-top: 11px;"><%= name %></div>
+    <% end %>
   </div>
 </div>
 <footer style="padding-top: 41px;">
