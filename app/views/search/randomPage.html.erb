@@ -19,7 +19,7 @@
 
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-  <div class="container"><a class="navbar-brand" href="index.html">ShakeItUp</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+  <div class="container"><a class="navbar-brand" href="/">ShakeItUp</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
@@ -58,7 +58,12 @@
       <p style="margin-top: 0px;"><%= @inst %></p>
     </div>
     <div class="col-xl-3">
-      <div class="form-check" style="margin-top: 10px;margin-bottom: 10px;"><input class="form-check-input" type="checkbox" id="formCheck-1" checked disabled><label class="form-check-label" for="flexCheckCheckedDisabled" style="margin-bottom: 15px;">Alcoholic</label></div>
+      <div class="form-check" style="margin-top: 10px;margin-bottom: 10px;">
+        <% if @alco == "Alcoholic" %>
+          <input class="form-check-input" type="checkbox" id="formCheck-1" checked disabled><label class="form-check-label" for="flexCheckCheckedDisabled" style="margin-bottom: 15px;">Alcoholic</label></div>
+        <% else %>
+          <input class="form-check-input" type="checkbox" id="formCheck-1" checked disabled><label class="form-check-label" for="flexCheckCheckedDisabled" style="margin-bottom: 15px;">Non-Alcoholic</label></div>
+        <% end %>
       <h4>Put it in a</h4>
       <p style="margin-top: 0px;margin-bottom: 10px;"><%= @glass %></p>
     </div>

@@ -1,0 +1,12 @@
+<%= form_with model: @search, url: search_searchResults_path do |form| %>
+  <%= form.text_field :searchInput %>
+<% end %>
+
+
+
+
+
+
+
+<!-- <input type="search" id="search-field" class="search-field" name="search" style="margin-right: 2px;margin-left: 20%;width: 60%;border: 4px solid rgb(175,93,158) ;"> <% @searchText = params[:search_field] %><%= link_to "Search", "/search/searchResults", class: "btn btn-dark" %>
+<i class="fa fa-search" style="margin-left: 8px;"></i> /!>

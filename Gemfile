@@ -7,8 +7,6 @@ gem "rails", "~> 7.0.0.rc1"
 
 gem 'httparty', '~> 0.20.0'
 
-gem 'gon', '~> 6.4'
-
 gem "sprockets-rails", ">= 3.4.1"
 
 gem "sqlite3", "~> 1.4"
