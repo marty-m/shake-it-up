@@ -1,5 +1,10 @@
+require "httparty"
 class HomeController < ApplicationController
   def index
 
   end
-end
+
+  def search
+
+  end
+  end
