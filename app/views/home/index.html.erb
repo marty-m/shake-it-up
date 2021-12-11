@@ -1,2 +1,72 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<html>
+<body>
+<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container"><a class="navbar-brand" href="/">ShakeItUp</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/search/cocktailPage">Random</a></li>
+        <li class="nav-item"></li>
+        <li class="nav-item"></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<header class="masthead" style="background-image: url('https://shake-it-up-bonhacketit.s3.eu-north-1.amazonaws.com/img/home-bg.jpg');height: 570px;">
+  <div class="overlay" style="border-color: rgb(26,23,77);"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto position-relative">
+        <div class="site-heading" style="height: 538px;">
+          <h1 style="background: rgba(255,255,255,0);margin-bottom: 0px;border-radius: 0;border-top-right-radius: 0px;">Welcome</h1><span class="d-xl-flex justify-content-xl-center align-items-xl-center subheading" data-aos="fade-down" style="font-family: Lora, serif;background: #00000000;height: 32px;text-align: center;margin-top: 0px;"><strong>Tonight's cocktail is just a click away!</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 d-xl-flex align-items-center align-content-center justify-content-xl-center">
+      <div class="intro">
+        <div class="buttons"></div>
+        <h2 class="text-center" style="margin-bottom: 10px;">Feeling lucky?</h2>
+        <p class="text-center" style="margin-top: 0px;">Not sure what's on the menu tonight? We got you!</p><a class="btn btn-primary" role="button" data-bss-hover-animate="shake" href="cocktail.html" style="background: rgb(26,23,77);border-style: none;">Suggest me a Random cocktail, please!</a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2 class="text-center" style="margin-bottom: 10px;">Find your cocktail</h2>
+      <p class="text-center" style="margin-top: 0px;">Know what you're looking for already?</p><input type="search" id="search-field" class="search-field" name="search" style="margin-right: 2px;margin-left: 20%;width: 60%;border: 4px solid rgb(175,93,158) ;">
+      <% @searchText = capture do %>
+        <%= javascript_tag "document.getElementById('search-field');" %>
+      <% end %>
+
+      <% puts @searchText %>
+      <script>
+          var input = document.getElementById("search-field");
+          input.addEventListener("keydown", function (e) {
+              if (e.key === "Enter") {
+                  validate(e);
+              }
+          });
+
+          function validate(e) {
+              var text = e.target.value;
+              alert(text);
+          }
+      </script><i class="fa fa-search" style="margin-left: 8px;"></i>
+    </div>
+  </div>
+</div>
+<footer style="padding-top: 41px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto">
+        <p class="text-muted copyright">Copyright&nbsp;©&nbsp;ShakeItUp 2021</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

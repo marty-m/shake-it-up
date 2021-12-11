@@ -1,0 +1,23 @@
+header.masthead .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  opacity: 0.3;
+}
+
+.overlay {
+}
+
+img {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  /*transform: perspective(0px);*/
+  border-radius: 0px;
+  border-style: solid;
+  border-color: #af5d9e;
+}
+
