@@ -1,5 +1,5 @@
 <%= form_with model: @search, url: search_searchResults_path do |form| %>
-  <%= form.text_field :searchInput %>
+  <%= form.text_field :searchInput, placeholder: @errorMsg, class: "search-field text-center", style: "margin-right: 2px;margin-left: 20%;width: 60%;border: 4px solid rgb(175,93,158) ;" %>
 <% end %>
 
 

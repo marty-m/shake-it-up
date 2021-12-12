@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/search/cocktailPage">Random</a></li>
+        <li class="nav-item"><a class="nav-link" href="/search/randomPage">Random</a></li>
         <li class="nav-item"></li>
         <li class="nav-item"></li>
       </ul>
@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-md-10 col-lg-8 mx-auto position-relative">
         <div class="site-heading" style="height: 538px;">
-          <h1 style="background: rgba(255,255,255,0);margin-bottom: 0px;border-radius: 0;border-top-right-radius: 0px;">Welcome</h1><span class="d-xl-flex justify-content-xl-center align-items-xl-center subheading" data-aos="fade-down" style="font-family: Lora, serif;background: #00000000;height: 32px;text-align: center;margin-top: 0px;"><strong>Tonight's cocktail is just a click away!</strong></span>
+          <h1 style="background: rgba(255,255,255,0);margin-bottom: 0px;border-radius: 0;border-top-right-radius: 0px;">Welcome</h1><span class="d-xl-flex justify-content-xl-center align-items-xl-center subheading" style="font-family: Lora, serif;background: #00000000;height: 32px;text-align: center;margin-top: 0px;"><strong>Tonight's cocktail is just a click away!</strong></span>
         </div>
       </div>
     </div>
@@ -36,9 +36,9 @@
     <div class="col-md-6">
       <h2 class="text-center" style="margin-bottom: 10px;">Find your cocktail</h2>
       <p class="text-center" style="margin-top: 0px;">Know what you're looking for already?</p>
-      <%= render 'search/searchBar', class: "search-field", style: "margin-right: 2px;margin-left: 20%;width: 60%;border: 4px solid rgb(175,93,158) ;" %><i class="fa fa-search" style="margin-left: 8px;"></i>
+      <p class="text-center" style="margin-top: 0px"><%= render 'search/searchBar', class: "search-field text-center", style: "margin-right: 2px;margin-left: 20%;width: 60%;border: 4px solid rgb(175,93,158) ;" %><i class="fa fa-search" style="margin-left: 8px;"></i></p>
     </div>
-  </div>
+  </div>s
 </div>
 <footer style="padding-top: 41px;">
   <div class="container">

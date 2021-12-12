@@ -13,19 +13,24 @@ class SearchController < ApplicationController
     @hash1 = {}
     @response = HTTParty.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=#{@searchText}")
     @jdoc1 = JSON.parse(@response.body)
-    @jdoc1["drinks"].each  do |sub|
-      @nameArr.push(sub["strDrink"])
-    end
-    @jdoc1["drinks"].each  do |sub|
-      @urlArr.push("#{sub["strDrinkThumb"]}/preview")
-    end
-    @jdoc1["drinks"].each  do |sub|
-      @IdArr.push(sub["idDrink"])
-      puts @IdArr
-    end
+    if @jdoc1["drinks"] == nil
+      redirect_to root_path(error: 404)
+    else
+      @jdoc1["drinks"].each  do |sub|
+        @nameArr.push(sub["strDrink"])
+      end
+      @jdoc1["drinks"].each  do |sub|
+        @urlArr.push("#{sub["strDrinkThumb"]}/preview")
+      end
+      @jdoc1["drinks"].each  do |sub|
+        @IdArr.push(sub["idDrink"])
+        puts @IdArr
+      end
       for n in (0..@nameArr.size-1) do
         @hash1[@nameArr[n]] = @urlArr[n]
       end
+    end
+
   end
 
   def cocktailPage
@@ -45,7 +50,7 @@ class SearchController < ApplicationController
     @photoUrl2 = "#{sub["strDrinkThumb"]}/preview"
 
     for i in (1..15) do
-      if (sub["strIngredient#{i}"] != nil) && (sub["strIngredient#{i}"] != " ")
+      if (sub["strIngredient#{i}"] != nil) && (sub["strIngredient#{i}"] != " ") && (sub["strIngredient#{i}"] != "")
         @hash2[sub["strIngredient#{i}"]] = sub["strMeasure#{i}"]
       end
     end
