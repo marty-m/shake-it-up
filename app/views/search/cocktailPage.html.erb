@@ -58,12 +58,16 @@
       <p style="margin-top: 0px;"><%= @inst2 %></p>
     </div>
     <div class="col-xl-3">
-      <div class="form-check" style="margin-top: 10px;margin-bottom: 10px;"><input class="form-check-input" type="checkbox" id="formCheck-1" checked disabled><label class="form-check-label" for="flexCheckCheckedDisabled" style="margin-bottom: 15px;">Alcoholic</label></div>
-      <h4>Put it in a</h4>
-      <p style="margin-top: 0px;margin-bottom: 10px;"><%= @glass2 %></p>
+      <div class="form-check" style="margin-top: 10px;margin-bottom: 10px;">
+        <% if @alco2 == "Alcoholic" %>
+          <input class="form-check-input" type="checkbox" id="formCheck-1" checked disabled><label class="form-check-label" for="flexCheckCheckedDisabled" style="margin-bottom: 15px;">Alcoholic</label></div>
+        <% else %>
+          <input class="form-check-input" type="checkbox" id="formCheck-1" checked disabled><label class="form-check-label" for="flexCheckCheckedDisabled" style="margin-bottom: 15px;">Non-Alcoholic</label></div>
+        <% end %>
+        <h4>Put it in a</h4>
+        <p style="margin-top: 0px;margin-bottom: 10px;"><%= @glass2 %></p>
+        </div>
     </div>
-  </div>
-</div>
 <hr>
 <footer>
   <div class="container">

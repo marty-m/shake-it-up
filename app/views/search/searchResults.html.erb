@@ -46,7 +46,7 @@
   <div class="row text-center d-lg-flex justify-content-lg-center align-items-lg-center" style="padding: 5px;margin: 5px;">
     <% @hash1.each_with_index {|(name, url), index|  %>
       <div class="col-md-3" style="width: 20%;margin-right: 2%;margin-left: 2%;"><img class="rounded-circle d-flex justify-content-lg-center" src=<%= url %> style="width: 100%;border-style: solid;border-color: #af5d9e;">
-        <%= link_to name, search_cocktailPage_path, class: "d-flex justify-content-lg-center", style: "width: 100%;margin-left: 1px;margin-top: 11px;", :id => @IdArr[index], remote: true  %>
+        <%= link_to name, search_cocktailPage_path(id: @IdArr[index]), class: "d-flex justify-content-lg-center", style: "width: 100%;margin-left: 1px;margin-top: 11px;", :param => @IdArr[index]  %>
     <% }%>
   </div>
 </div>

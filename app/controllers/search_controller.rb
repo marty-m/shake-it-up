@@ -29,24 +29,27 @@ class SearchController < ApplicationController
   end
 
   def cocktailPage
-    @selectedId = File.read('\Users\noodle-box\IdeaProjects\ShakeItUp\app\controllers\ID.txt')
-    puts "ID HERE: #{params[:id].nil?}"
     @hash2 = {}
     @response = HTTParty.get("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{params[:id]}")
     @jdoc3 = JSON.parse(@response.body)
+
     @jdoc3["drinks"].each  do |sub|
     @name2 =  sub["strDrink"]
     @photoUrl2 = "#{sub["strDrinkThumb"]}/preview"
+
     if sub["strCategory"] != nil then @category2 = sub["strCategory"] end
+
     @alco2 = sub["strAlcoholic"]
     @glass2 = sub["strGlass"]
     @inst2 = sub["strInstructions"]
     @photoUrl2 = "#{sub["strDrinkThumb"]}/preview"
+
     for i in (1..15) do
       if (sub["strIngredient#{i}"] != nil) && (sub["strIngredient#{i}"] != " ")
         @hash2[sub["strIngredient#{i}"]] = sub["strMeasure#{i}"]
       end
     end
+
     end
   end
 
